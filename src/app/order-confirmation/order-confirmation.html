@@ -1,0 +1,50 @@
+<div class="confirmation-container">
+  <div class="success-icon">✓</div>
+
+  <h1>Order Confirmed!</h1>
+  <p class="Thank-you">Thank you for your order!</p>
+
+  <div class="order-details" *ngIf="order">
+    <div class="order-header">
+      <h3>Order #: {{ order.id }}</h3>
+      <span class="status-badge">{{ order.status }}</span>
+    </div>
+    <div class="info-section"></div>
+    <h4>Order Summary</h4>
+    <div *ngFor="let item of order.items" class="order-item">
+      <div class="order-item">
+        <span>{{ item.name }} x {{ item.quantity }}</span>
+        <span>${{ item.price * item.quantity }}</span>
+      </div>
+
+      <div class="order-total">
+        <strong>Total to pay at pickup: ${{ order.totalAmount }}</strong>
+      </div>
+      <div class="pickup-info">
+        <h4>Pickup Details</h4>
+        <p><strong>Address:</strong>123 Main Street, Fargo, ND 58102</p>
+        <p><strong>Pickup time:</strong>we'll contact you when order is ready</p>
+        <p><strong>Payment:</strong> Cash or card on Pickup</p>
+      </div>
+      <div class="info-section">
+        <h4>Customer Information</h4>
+        <p><strong>Name:</strong> {{ order.name }}</p>
+        <p><strong>Email:</strong> {{ order.email }}</p>
+      </div>
+      <div class="info-section">
+        <h4>Additional Notes</h4>
+        <p>
+          We'll send an email to<strong>{{ order.email }}</strong> when your order is ready for
+          pickup
+        </p>
+        <p>Please bring your number when picking up</p>
+      </div>
+
+      <div class="action-button">
+        <button class="btn-home" (click)="(goHome)">Back to Menu</button>
+
+        <button class="btn-orders" (click)="viewOrders()">View My Order</button>
+      </div>
+    </div>
+  </div>
+</div>

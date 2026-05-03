@@ -1,0 +1,142 @@
+.confirmation-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #97c9a3;
+  margin-bottom: 10px;
+}
+
+.thank-you {
+  font-size: 18px;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+.order-details {
+  text-align: left;
+  margin: 30px 0;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.order-header h3 {
+  margin: 0;
+  color: #9cbddd;
+}
+
+.status-badge {
+  background: #fff1c5;
+  color: #9c770b;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.info-section h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 8px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  margin-top: 10px;
+  font-size: 1.2em;
+  border-top: 2px solid #dee2e6;
+}
+
+.info-section p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-home, .btn-orders {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-home {
+  background: #92b9e2;
+  color: white;
+}
+
+.btn-home:hover {
+  background: #94c8ff;
+  transform: translateY(-2px);
+}
+
+.btn-orders {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-orders:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .confirmation-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-home, .btn-orders {
+    width: 100%;
+  }
+}
