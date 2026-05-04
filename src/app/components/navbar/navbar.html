@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-shell sticky-top">
+  <div class="container">
+    <a routerLink="/login" class="navbar-brand brand-link" (click)="closeMenus()">
+      <img src="/images/th.jpeg" alt="Ice Cream Logo" class="brand-image" />
+      <span></span>
+    </a>
+
+    <button
+      type="button"
+      class="navbar-toggler"
+      aria-controls="navbarMain"
+      [attr.aria-expanded]="mobileMenuOpen"
+      aria-label="Toggle navigation"
+      (click)="toggleMobileMenu()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="mobileMenuOpen" id="navbarMain">
+      @if (isLoggedIn) {
+        <ul class="navbar-nav nav-list me-lg-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a routerLink="/menu" class="nav-link nav-link-pill" (click)="closeMenus()">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/cart" class="nav-link nav-link-pill" (click)="closeMenus()">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/checkout" class="nav-link nav-link-pill" (click)="closeMenus()"
+              >My Orders</a
+            >
+          </li>
+
+          @if (isAdmin) {
+            <li class="nav-item dropdown admin-dropdown">
+              <button
+                type="button"
+                class="nav-link nav-link-pill admin-toggle"
+                (click)="toggleAdminMenu()"
+              >
+                <span>Admin</span>
+                <span class="admin-caret">▾</span>
+              </button>
+
+              @if (showAdminMenu) {
+                <div class="admin-menu">
+                  <a routerLink="/admin" class="admin-menu-item" (click)="closeMenus()"
+                    >Dashboard</a
+                  >
+                  <a routerLink="/admin/menu" class="admin-menu-item" (click)="closeMenus()"
+                    >Manage Menu</a
+                  >
+                  <a routerLink="/admin/orders" class="admin-menu-item" (click)="closeMenus()"
+                    >Manage Orders</a
+                  >
+                </div>
+              }
+            </li>
+          }
+        </ul>
+      }
+
+      <div class="navbar-actions ms-lg-auto">
+        @if (!isLoggedIn) {
+          <a routerLink="/login" class="btn btn-nav btn-login" (click)="closeMenus()">Login</a>
+          <a routerLink="/register" class="btn btn-nav btn-register" (click)="closeMenus()"
+            >Register</a
+          >
+        }
+
+        @if (isLoggedIn) {
+          <button type="button" class="btn btn-nav btn-logout" (click)="logout()">Logout</button>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

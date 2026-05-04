@@ -5,6 +5,7 @@ import { AdminDashboard } from './components/admin-dashboard/admin-dashboard';
 import { ManageMenu } from './components/manage-menu/manage-menu';
 import { ManageOrders } from './components/manage-orders/manage-orders';
 import { Checkout } from './components/checkout/checkout';
+import { About } from './components/about/about';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'admin/menu', component: ManageMenu },
   { path: 'admin/orders', component: ManageOrders },
   { path: 'checkout', component: Checkout },
+  { path: 'about', component: About },
   { path: '**', redirectTo: 'login' },
 ];
