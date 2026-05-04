@@ -18,11 +18,11 @@ export class Menu implements OnInit {
   async ngOnInit() {
     const items = await this.menuService.getMenuItems();
 
-    console.log("🔥 FIREBASE DATA:", items);
+    console.log(" FIREBASE DATA:", items);
 
     this.menuItems = items;
 
-    // 🔥 FORCE UI UPDATE
+    
     this.cdr.detectChanges();
   }
 

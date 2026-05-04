@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'register', component: Register },
 
   { path: 'home', component: Home },
-  { path: 'menu', component: Menu },   // ✅ ONLY ONCE
+  { path: 'menu', component: Menu },  
 
   { path: 'admin', component: AdminDashboard },
   { path: 'admin/menu', component: ManageMenu },
