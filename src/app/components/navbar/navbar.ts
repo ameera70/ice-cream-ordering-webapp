@@ -8,7 +8,7 @@ import { RouterLink, Router } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {
+export class NavbarComponent {
   private router = inject(Router);
 
   isLoggedIn: boolean = false;
