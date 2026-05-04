@@ -15,7 +15,6 @@ export class Register {
   name = '';
   email = '';
   password = '';
-
   loading = false;
 
   onRegister(): void {
@@ -26,14 +25,20 @@ export class Register {
 
     this.loading = true;
 
-    this.authService.register(this.name, this.email, this.password);
-
-    setTimeout(() => {
-      this.loading = false;
-      alert('Account created successfully!');
-      this.name = '';
-      this.email = '';
-      this.password = '';
-    }, 1000);
+    this.authService.register(this.name, this.email, this.password).subscribe({
+      next: (response) => {
+        this.loading = false;
+        console.log('Register success:', response);
+        alert('Account created successfully');
+        this.name = '';
+        this.email = '';
+        this.password = '';
+      },
+      error: (error) => {
+        this.loading = false;
+        console.error('Registration failed:', error);
+        alert('Registration failed. Please try again.');
+      },
+    });
   }
 }

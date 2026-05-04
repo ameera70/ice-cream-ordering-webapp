@@ -1,0 +1,36 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+  <div class="order summary">
+    <h3>Your Order</h3>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <span>{{ item.name }} x {{ item.quantity }}</span>
+      <span> ${{ item.price * item.quantity }}</span>
+    </div>
+    <div class="total">
+      <strong>Total to pay at pickup: ${{ totalAmount }}</strong>
+    </div>
+  </div>
+  <div class="pickup-details">
+    <h3>Pickup Details</h3>
+    <p><strong>Address:</strong>123 Main Street, Fargo, ND 58102</p>
+    <p><strong>Pickup time:</strong>we'll contact you when order is ready</p>
+    <p><strong>Payment:</strong> Cash or card on Pickup</p>
+  </div>
+  <form #checkoutForm="ngForm" (ngSubmit)="placeOrder()">
+    <div class="form-group">
+      <label>Full Name *</label>
+      <input type="text" [(ngModel)]="orderData.name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label>Email Address *</label>
+      <input
+        type="email"
+        [(ngModel)]="orderData.email"
+        name="email"
+        required
+        placeholder="we'll contact you when order is ready"
+      />
+    </div>
+    <button type="submit" [disabled]="!checkoutForm.valid">Place Order (Pay at Pickup)</button>
+  </form>
+</div>

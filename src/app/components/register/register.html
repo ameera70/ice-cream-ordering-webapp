@@ -1,28 +1,47 @@
 <div class="container mt-5">
-  <div class="card shadow p-4 mx-auto" style="max-width: 400px;">
+  <div class="card shadow p-4 mx-auto auth-card">
     <h2 class="text-center mb-4">Register</h2>
 
     <form (ngSubmit)="onRegister()">
-
       <div class="mb-3">
-        <label>Name</label>
-        <input type="text" class="form-control" [(ngModel)]="name" name="name">
+        <label for="register-name" class="form-label">Name</label>
+        <input
+          id="register-name"
+          type="text"
+          class="form-control"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Enter your name"
+        />
       </div>
 
       <div class="mb-3">
-        <label>Email</label>
-        <input type="email" class="form-control" [(ngModel)]="email" name="email">
+        <label for="register-email" class="form-label">Email</label>
+        <input
+          id="register-email"
+          type="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email"
+        />
       </div>
 
       <div class="mb-3">
-        <label>Password</label>
-        <input type="password" class="form-control" [(ngModel)]="password" name="password">
+        <label for="register-password" class="form-label">Password</label>
+        <input
+          id="register-password"
+          type="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Create a password"
+        />
       </div>
 
-      <button class="btn btn-primary w-100" [disabled]="loading">
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loading">
         {{ loading ? 'Creating account...' : 'Register' }}
       </button>
-
     </form>
   </div>
 </div>
