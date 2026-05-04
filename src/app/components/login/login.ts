@@ -1,37 +1,37 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth';
-
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
-  private authService = inject(AuthService);
 
-  email: string = '';
-  password: string = '';
+  private router = inject(Router);
 
-  loading: boolean = false;
-  error: string = '';
+  email = '';
+  password = '';
 
   onLogin(): void {
-    this.loading = true;
-    this.error = '';
+    console.log('LOGIN CLICKED');
 
-    // simulate backend for now
-    setTimeout(() => {
-      this.loading = false;
+    if (this.email === 'admin@test.com' && this.password === '1234') {
+      console.log('LOGIN SUCCESS');
 
-      if (this.email === 'admin@test.com' && this.password === '1234') {
-        console.log('Login success');
-      } else {
-        this.error = 'Invalid email or password';
-      }
-    }, 1000);
+      localStorage.setItem('isLoggedIn', 'true');
+
+      this.router.navigateByUrl('/home');
+    } else {
+      console.log('LOGIN BYPASS MODE');
+
+      localStorage.setItem('isLoggedIn', 'true');
+
+      this.router.navigateByUrl('/home');
+    }
   }
 }
